@@ -3,22 +3,6 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    volumes:
-      # do not try to map a folder up against node_modules
-      - /app/node_modules
-      # map the current folder into the app folder inside the container
-      - .:/app
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      # do not try to map a folder up against node_modules
-      - /app/node_modules
-      # map the current folder into the app folder inside the container
-      - .:/app
-    # - override the default command from the Dockerfile.dev
-    command: ["npm", "run", "test"]
+      - '80:80'
