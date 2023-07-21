@@ -2,8 +2,10 @@ sudo: required
 services:
   - docker
 before_install:
+  # the name of the image docker-react-dev can be anything you like
   - docker build -t cristidrincu/docker-react-dev -f Dockerfile.dev .
 script:
+  # the name of the image docker-react-dev can be anything you like
   - docker run -e CI=true cristidrincu/docker-react-dev npm run test
 deploy:
   provider: elasticbeanstalk
